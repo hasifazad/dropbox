@@ -1,0 +1,25 @@
+.upload_page {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.input_field {
+    width: 600px;
+    height: 300px;
+    border: black 2px dashed;
+}
+
+.up_but {
+    border: none;
+    color: white;
+    border-radius: 5px;
+    width: 90px;
+    height: 35px;
+    cursor: pointer;
+    background-color: rgb(57, 151, 57);
+}
+
+.upload_page_box_one {
+    margin-top: 10px;
+}
