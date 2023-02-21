@@ -51,6 +51,15 @@ export default function BasicTable() {
       })
   }
 
+  const getTime = (time) => {
+    var d = new Date(time);
+    d.getHours(); // => 9
+    d.getMinutes(); // =>  30
+    d.getSeconds(); // => 51
+
+    return d
+  }
+
   return (
     <TableContainer component={Paper} sx={{ width: 1200 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -75,11 +84,11 @@ export default function BasicTable() {
               <TableCell component="th" scope="row">
                 {index + 1}
               </TableCell>
-              <TableCell align="center">{row.calories}</TableCell>
+              <TableCell align="center">{row.file.originalname.split('.')[0]}</TableCell>
               <TableCell align="center">{(row.file.size / 1024).toFixed(2)} MB</TableCell>
-              <TableCell align="center">{row.file.mimetype}</TableCell>
-              <TableCell align="center">{row.createdAt}</TableCell>
-              <TableCell align="center">{row.updatedAt}</TableCell>
+              <TableCell align="center">{row.file.mimetype.split('/')[1]}</TableCell>
+              <TableCell align="center">{new Date(row.createdAt).toDateString()}</TableCell>
+              <TableCell align="center">{new Date(row.createdAt).toLocaleTimeString()}</TableCell>
               <TableCell align="center">
                 <button className='download_but' onClick={() => onDownload(row.file.filename)}>Download</button>
               </TableCell>
